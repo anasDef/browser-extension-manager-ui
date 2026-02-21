@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* ===== VARIABLES ===== */
+:root {
+  /* Neutral Colors */
+  --neutral-900: hsl(227, 75%, 14%);
+  --neutral-800: hsl(226, 25%, 17%);
+  --neutral-700: hsl(225, 23%, 24%);
+  --neutral-600: hsl(226, 11%, 37%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-200: hsl(217, 61%, 90%);
+  --neutral-100: hsl(0, 0%, 93%);
+  --neutral-0: hsl(200, 60%, 99%);
+
+  /* Red Colors */
+  --red-400: hsl(3, 86%, 64%);
+  --red-500: hsl(3, 71%, 56%);
+  --red-700: hsl(3, 77%, 44%);
+
+  /* font weights */
+  --weight-400: 400;
+  --weight-500: 500;
+  --weight-700: 700;
+
+  /* light theme */
+  --button-bg: var(--neutral-0);
+  --button-border: var(--neutral-300);
+  --button-active-bg: var(--red-700);
+  --button-active-color: var(--neutral-0);
+  --text-color: var(--neutral-900);
+  --background: var(--neutral-0);
+  --gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+}
+/* dark theme */
+html.dark {
+  --button-bg: var(--neutral-700);
+  --button-active-bg: var(--red-400);
+  --button-border: var(--neutral-600);
+  --button-active-color: var(--neutral-900);
+  --text-color: var(--neutral-0);
+  --background: var(--neutral-800);
+  --gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+/* ===== GLOBAL RULES ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background: var(--gradient);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: "Noto Sans", sans-serif;
+}
+button:focus {
+  outline: 2px solid var(--red-400);
+}
+
+.container {
+  width: 80%;
+  min-height: 100vh;
+  margin-inline: auto;
+  padding-block: 20px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: var(--background);
+}
+
+.header__toggle-button {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--neutral-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.1s;
+}
+
+html.dark .header__toggle-button {
+  background-color: var(--neutral-700);
+}
+html.dark .header__toggle-button:hover {
+  background-color: var(--neutral-600);
+}
+
+.header__toggle-button:hover {
+  background-color: var(--neutral-300);
+}
+
+/* ===== CONTROLS ===== */
+.controls {
+  width: 100%;
+  margin: 50px 0px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 700px) {
+  .controls {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.controls__title {
+  font-size: 30px;
+  font-weight: var(--weight-700);
+  color: var(--text-color);
+}
+
+.controls__buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.controls__button {
+  border: 2px solid var(--button-border);
+  border-radius: 30px;
+  background-color: var(--button-bg);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: var(--weight-400);
+  color: var(--text-color);
+  transition: 0.2s;
+}
+
+.controls__button:hover {
+  opacity: 0.7;
+}
+
+.controls__button.active {
+  background-color: var(--button-active-bg);
+  border-color: transparent;
+  color: var(--button-active-color);
+}
+
+.controls__button.active:hover {
+  opacity: 1;
+  background-color: var(--red-400);
+}
+
+/* dark theme */
+html.dark .controls__button:hover {
+  opacity: 1;
+  background-color: var(--neutral-600);
+}
+html.dark .controls__button.active:hover {
+  opacity: 1;
+  background-color: var(--red-500);
+}
+
+/* ===== EXTENSIONS ===== */
+.extensions {
+  width: 100%;
+}
+
+.extensions__list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.extensions__extension {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border: 1px solid var(--button-border);
+  border-radius: 16px;
+  background-color: var(--background);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  /* gap: 36px; */
+}
+
+.extensions__main-info {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  gap: 16px;
+}
+
+.extensions__extension-title {
+  color: var(--text-color);
+  font-weight: var(--weight-700);
+}
+
+.extensions__extension-description {
+  color: var(--neutral-600);
+  font-weight: var(--weight-500);
+  font-size: 14px;
+}
+
+.extensions__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.extensions__remove-btn {
+  background-color: var(--neutral-0);
+  border: 1px solid var(--neutral-300);
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-weight: var(--weight-500);
+  transition: 0.2s;
+}
+
+.extensions__remove-btn:hover {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-color);
+  border: 1px solid transparent;
+}
+
+/* dark theme */
+html.dark .extensions__extension-description {
+  color: var(--neutral-300);
+}
+
+html.dark .extensions__remove-btn {
+  background-color: transparent;
+  border: 1px solid var(--neutral-600);
+  color: var(--neutral-0);
+}
+
+html.dark .extensions__remove-btn:hover {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-color);
+  border: 1px solid transparent;
+}
+
+.extension__state-btn {
+  width: 50px;
+  height: 25px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--neutral-300);
+  position: relative;
+  padding: 4px;
+}
+
+/* disabled state */
+
+.extension__state-btn::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: var(--neutral-0);
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.2s;
+}
+
+/* active state */
+.extension__state-btn.extension__state-btn--active {
+  background-color: var(--red-700);
+}
+
+.extension__state-btn.extension__state-btn--active::before {
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* dark theme */
+html.dark .extension__state-btn {
+  background-color: var(--neutral-600);
+}
+
+html.dark .extension__state-btn.extension__state-btn--active {
+  background-color: var(--red-500);
+}

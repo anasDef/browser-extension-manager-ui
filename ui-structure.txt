@@ -1,0 +1,26 @@
+.container (div)
+    - .header (header):
+        * .header__logo (div)
+            (img)
+        * .header__toggle-button (button)
+            .header__themeIcon (img)
+
+    - .controls (section):
+        * .controls__title (h2)
+        * .controls__buttons (div)
+            .controls__button (button)
+            .controls__button (button)
+            .controls__button (button)
+
+    - .extensions (section):
+        * .extensions__list (ul)
+            .extensions__extension (li)
+                .extensions__main-info (div) 
+                    .extensions__extension-icon (img)
+                    .extensions__extension-info (div)
+                        .extensions__extension-title (h3)
+                        .extensions__extension-description (span)
+
+                .extensions__controls (div)
+                    .extensions__remove-btn (button)
+                    .extension__state-btn (button) // it could has a modifiers .extensions__stat-btn--inactive .extensions__stat-btn--active

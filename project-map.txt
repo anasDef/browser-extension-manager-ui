@@ -1,0 +1,33 @@
+state mangement:
+    * store all extensions in one array called extensions (the only source of data)
+    * every extension will have a unique id
+
+logic:
+    1- implement renderExtensions(): 
+        * will take the extensions array as a parameter
+        * loop through out the extensions array
+            - create li element with it's children
+            - append the li into the extensions list
+    2- implement toggleExtensionsState(id): 
+        * Search for the extension that has the same ID 
+        * when found check for isActive prop
+            - if true change it to false
+            - else change it to true
+    3- implement removeExtension(id):
+        * Search for the extension that has the same ID
+        * when found remove the extension from extensions array
+        * call the renderExtensions(array) and pass it the modified extensions array
+    4- if show all extensions button is clicked:
+        * call the renderExtensions(array) and pass it extensions as a parameter
+    5- implement showActiveOrInActiveExensions(condition):
+        * create a copy of the extensions array called extensionsCopy
+        * extensionsCopy will be filtered from extensions that it's isActive prop == (condition)
+        * call the renderExtensions(array) and pass it extensionsCopy as a parameter
+    6- implement toggleTheme():
+        * the function will be called when toggle theme button is clicked
+        * if html classname contains "dark"
+            - remove the classname
+            - change the icon from sun to moon
+        * else  
+            - add dark classname to the html element
+            - change the icon from moon to sun
