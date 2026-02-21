@@ -98,7 +98,6 @@ function renderExtensions(array) {
   array.map((ext) => {
     const li = document.createElement("li");
     li.classList.add("extensions__extension");
-    li.id = ext.id;
 
     const mainInfo = document.createElement("div");
     mainInfo.classList.add("extensions__main-info");
